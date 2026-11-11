@@ -1,0 +1,120 @@
+/* .register-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 75px);
+  width: 100vw;
+}
+
+.register-form {
+  padding: 20px;
+  height: 500px;
+  width: 450px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form label {
+  margin-left: 45px;
+  display: block;
+}
+.register-form input {
+  border: 1px solid black;
+  width: 80%;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding-left: 5px;
+  font-size: large;
+} */
+
+.register-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 75px);
+  width: 100vw;
+}
+
+/* FORM CARD */
+.register-form {
+  padding: 40px 45px;
+  width: 420px;
+  background-color: #f7f9fb;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* TITLE */
+.register-form h3 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* LABELS */
+.register-form label {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* INPUT FIELDS */
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  border: 1px solid #d1d5db;
+  width: 100%;
+  height: 46px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 0 12px;
+  font-size: 15px;
+  transition:
+    border 0.2s,
+    box-shadow 0.2s;
+}
+
+/* INPUT FOCUS EFFECT */
+.register-form input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* REGISTER BUTTON */
+.register-form input[type="submit"] {
+  height: 46px;
+  border-radius: 8px;
+  border: none;
+  background-color: #3b82f6;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: background 0.2s;
+}
+
+.register-form input[type="submit"]:hover {
+  background-color: #2563eb;
+}
+
+/* LOGIN LINK */
+.register-form a {
+  margin-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: #2563eb;
+  font-size: 14px;
+}
+
+.register-form a:hover {
+  text-decoration: underline;
+}

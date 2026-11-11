@@ -5,6 +5,9 @@ import bodyParser from "body-parser";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+import dotenv from "dotenv";
+dotenv.config();
+
 const db = new pg.Client({
   user: process.env.PG_USER,
   password: process.env.PG_PASSWORD,
@@ -35,26 +38,24 @@ function authenticateToken(req, res, next) {
   });
 }
 
-app.post("/filter", async (req, res) => {
-  // const response = await db.query(
-  //   "",
-  //   [
-  //     req.body.courseNo,
-  //     req.body.courseName,
-  //     req.body.prof,
-  //     req.body.year,
-  //     req.body.semester,
-  //   ]
-  // );
-  // console.log(response);
-  // if (response.rows.length > 0) {
-  //   const courseId = response.rows[0];
-  //   const result = await db.query(
-  //     "SELECT * FROM resources where course_id=$1",
-  //     [courseId]
-  //   );
-  //   console.log(result.rows);
-  // }
+app.get("/filter", async (req, res) => {
+  const { courseNo, courseName, prof, year, semester } = req.query;
+
+  let query = "SELECT * FROM courses WHERE 1=1";
+
+  if (courseNo) query += ` AND course_no ILIKE '%${courseNo}%'`;
+
+  if (courseName) query += ` AND course_name ILIKE '%${courseName}%'`;
+
+  if (prof) query += ` AND prof ILIKE '%${prof}%'`;
+
+  if (year) query += ` AND course_year='${year}'`;
+
+  if (semester) query += ` AND semester='${semester}'`;
+
+  const result = await db.query(query);
+
+  res.json(result.rows);
 });
 
 app.post("/register", async (req, res) => {
@@ -70,7 +71,7 @@ app.post("/register", async (req, res) => {
 
   await db.query(
     "INSERT INTO users (name, email, password) VALUES ($1, $2, $3)",
-    [name, email, hashedPassword]
+    [name, email, hashedPassword],
   );
 
   res.status(201).json({ message: "User registered" });
@@ -111,7 +112,7 @@ app.post("/post", async (req, res) => {
       req.body.profName,
       req.body.year,
       req.body.sem,
-    ]
+    ],
   );
   console.log(result.rows);
   if (result.rows.length === 0) {
@@ -123,14 +124,14 @@ app.post("/post", async (req, res) => {
         req.body.profName,
         req.body.year,
         req.body.sem,
-      ]
+      ],
     );
     console.log(course.rows);
     const courseId = course.rows[0].id;
     console.log(courseId);
     await db.query(
       "INSERT INTO resources (course_id, resource_type, resource_link) VALUES ($1, $2, $3)",
-      [courseId, req.body.resourceType, req.body.resource_link]
+      [courseId, req.body.resourceType, req.body.resource_link],
     );
   } else {
     console.log(result.rows);
@@ -138,7 +139,7 @@ app.post("/post", async (req, res) => {
     console.log(courseId);
     await db.query(
       "INSERT INTO resources (course_id, resource_type, resource_link) VALUES ($1, $2, $3)",
-      [courseId, req.body.resourceType, req.body.resource_link]
+      [courseId, req.body.resourceType, req.body.resource_link],
     );
   }
   res.json({ message: "Resource added" });
@@ -160,7 +161,7 @@ app.get("/courses/:id/resources", async (req, res) => {
   try {
     const result = await db.query(
       "SELECT * FROM resources WHERE course_id = $1",
-      [courseId]
+      [courseId],
     );
     res.json(result.rows);
   } catch (err) {

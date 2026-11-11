@@ -1,0 +1,147 @@
+/* .file-upload-container {
+  width: 100vw;
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-form {
+  border-radius: 10px;
+  height: 550px;
+  width: 600px;
+  background-color: grey;
+  padding: 30px;
+}
+.file-upload-container label {
+  display: block;
+}
+.file-upload-container input[type="text"],
+.file-upload-container input[type="submit"] {
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+  height: 40px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.file-upload-container input[type="radio"] {
+  margin: 10px;
+}
+.file-upload-container input[type="file"] {
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+}
+.file-upload-container button,
+.file-upload-container select {
+  border: none;
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
+}
+
+.file-upload-section {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 5px;
+} */
+
+.file-upload-container {
+  width: 100vw;
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FORM CARD */
+.upload-form {
+  border-radius: 14px;
+  width: 600px;
+  background-color: #f7f9fb;
+  padding: 35px 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* FORM TITLE */
+.upload-form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+/* LABELS */
+.file-upload-container label {
+  display: block;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+/* TEXT INPUTS */
+.file-upload-container input[type="text"] {
+  border: 1px solid #d3d3d3;
+  border-radius: 6px;
+  padding-left: 10px;
+  height: 40px;
+  width: 100%;
+  margin-bottom: 10px;
+  transition: border 0.2s;
+}
+
+.file-upload-container input[type="text"]:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+/* RADIO */
+.file-upload-container input[type="radio"] {
+  margin: 8px;
+}
+
+/* FILE INPUT */
+.file-upload-container input[type="file"] {
+  height: 40px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+}
+
+/* FILE + RESOURCE ROW */
+.file-upload-section {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/* RESOURCE NAME INPUT */
+.file-upload-section input[type="text"] {
+  width: 60%;
+}
+
+/* SUBMIT BUTTON */
+.file-upload-container input[type="submit"],
+.file-upload-container button {
+  border: none;
+  border-radius: 6px;
+  height: 42px;
+  width: 100%;
+  background-color: #3b82f6;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.file-upload-container input[type="submit"]:hover,
+.file-upload-container button:hover {
+  background-color: #2563eb;
+}

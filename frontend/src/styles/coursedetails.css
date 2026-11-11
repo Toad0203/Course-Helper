@@ -1,0 +1,37 @@
+.course-container {
+  padding: 20px;
+  margin: auto;
+  width: 70%;
+  background-color: white;
+  font-size: large;
+}
+
+.course-container h2 {
+  font-size: 50px;
+}
+
+.course-container h3 {
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+}
+
+.course-container table {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  line-height: 40px;
+}
+
+.course-container section {
+  background-color: rgb(212, 212, 212);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.inner-section {
+  background-color: white;
+  padding: 5px;
+}
+.inner-section p {
+  padding-left: 10px;
+}
